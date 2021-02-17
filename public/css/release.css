@@ -1,0 +1,11 @@
+#release{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #170d33
+}
+#release img{
+  height: 300px;
+  width: auto;
+}

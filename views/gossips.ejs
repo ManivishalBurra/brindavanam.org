@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Brindavanam-Gossips&campus</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <script src="https://kit.fontawesome.com/e88105b741.js" crossorigin="anonymous"></script>
+
+
+<%- include("partials/header.ejs"); -%>
+
+
+<section id="main-page">
+  <div id="starting">
+    <div class="vertical-center">
+    <h1>#Muchatleskundam!</h1>
+    <p>Manam campus lo unnappudu mana batch tho kalisi yumpies lo ala sodeskuntu konni gossips cheppukuntam ave ikkada cheppandi 2020 batch ki bits parichayam cheddam❣</p>
+    </div>
+  </div>
+  <div class="curves">
+  <div class="container gossipsArea">
+    <div class="row" id="post-row">
+      <div class="col-lg-8 like">
+  <% tripHeading.slice().reverse().forEach(function(element){%>
+       <div class="trip-post">
+         <h6><i class="far fa-user-circle" style="color:grey;"></i>Manivishal>></h6>
+        <div class="post-image">
+          <img src="<%= element.imageurl %>" alt="">
+        </div>
+        <div class="post-react">
+          <form class="" action="/like" method="post">
+            <input type="hidden" name="like_id">
+            <button type="button" class="btnss" id="<%=element.id%>" value="<%= element.totalLikes%>" name="unliked">
+              <i class="far fa-heart"></i><%= element.totalLikes%> likes</button>
+          </form>
+        </div>
+       </div>
+       <div class="post-descrition">
+          <div class="trip-post">
+            <div class="details-content">
+              <h4><%= element.title %></h4>
+              <p><%= element.write %></p>
+            </div>
+            <div class="details-content">
+              <h4>Gossip about</h4>
+              <p><%= element.overview %></p>
+            </div>
+          </div>
+       </div>
+  <%})%>
+      </div>
+      <div class="col-lg-4">
+        <div class="addPost">
+          <div class="headingForPost">
+            <span class="font-weight-bold">Create</span>
+             a post?
+          </div>
+        </div>
+        <hr>
+        <a class="w-100 btn btn-primary buy-now btn-wide transition-3d-hover mt-2" href="https://docs.google.com/forms/d/e/1FAIpQLSfghlTNLUQNmNNiPrs1VU5WNDi7qgZ9CpSnl5-KMjQiZUYp8w/viewform?usp=sf_link"><i class="far fa-plus-square iconstyle"></i>Click here to post</a>
+        <div class="addSymbol">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </div>
+</section>
+
+
+
+
+
+
+<%- include("partials/footer.ejs"); -%>

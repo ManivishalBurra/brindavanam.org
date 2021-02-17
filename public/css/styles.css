@@ -1,0 +1,213 @@
+
+a{
+  color:black !important;
+  text-decoration: none !important;
+  display: flex;
+  font-size:15px;
+}
+h6{
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+h4{
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+  text-decoration: underline;
+}
+#starting p{
+  color:white;
+}
+/* #navi #headDiv
+{
+  padding: 0 120px;
+  box-shadow: 0 4px 18px 0px rgb(0 0 0 / 12%), 0 7px 10px -5px rgb(0 0 0 / 15%);
+}
+#navbarSupportedContent .nav-link
+{
+  padding: 8px 13px;
+} */
+#starting{
+  height:80vh;
+  background-image: url('../images/DJI_0332(1).jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+#starting .vertical-center {
+  margin: 0;
+  position: absolute;
+  top: 70%;
+  left:3%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 50%;
+}
+#starting .vertical-center h1{
+  color:white;
+}
+.curves{
+    border-radius: 10px;
+    width: 95%;
+    background-color: #e5e5e5;
+    margin:30px auto;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 9%);
+}
+#main-page{
+ padding-top: 69px;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+.gossipsArea {
+    width: 100%;
+    padding-top: 40px;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: 0;
+    margin-left: auto;
+}
+/* .row{
+  display: flex;
+  align-items:center;
+  justify-content: center;
+} */
+.trip-post {
+    padding:10px 15px;
+    padding-bottom: 10px;
+    background: #fff;
+    box-shadow: 0 2px 12px rgb(0 0 0 / 9%);
+    border-radius: 8px;
+}
+.post-image img{
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  object-position: top center;
+  border-radius: 8px;
+}
+.btnss:focus{
+  outline: none;
+}
+button{
+  border: none;
+  background-color: none;
+  background: none;
+  outline: none;
+}
+button img{
+  width: 30px;
+  height: auto;
+  margin-right: 5px;
+}
+.fas{
+  color: red;
+  font-size: 23px;
+  padding-right: 7px;
+}
+.far{
+  font-weight: 200;
+  font-size: 23px;
+  margin-right: 5px;
+}
+.post-react{
+  margin-top: 12px;
+}
+.post-descrition{
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.trip-description{
+  margin-top: 20px;
+}
+.details-content {
+    padding: 12px ;
+}
+.details-content p{
+    font-size: 14px;
+}
+
+.addPost{
+  background: #fff;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 9%);
+  border-radius: 4px;
+  margin-bottom: 30px;
+  padding:30px;
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+}
+.font-weight-bold {
+    font-weight: 700!important;
+}
+.heading {
+    color: #555c6b;
+    font-size: 20px;
+  }
+.addSymbol{
+  width: 50%;
+  height: 50px;
+  text-align: center;
+
+}
+.footer{
+  height: 300px;
+  background-color: #dde0e7;
+}
+.credits{
+  background-color: #dde0e7;
+  text-align: center;
+}
+.credits p{
+  margin: 0;
+  padding: 10px;
+}
+@media (max-width:991px) {
+
+    .curves .gossipsArea{
+      margin-right: auto;
+    }
+    .curves{
+      margin:0;
+      width: 100%
+    }
+    .trip-post{
+      padding:3px;
+    }
+    .like{
+      padding: 0 3px;
+    }
+    /* #creds{
+      position: relative;
+      top:20%;
+    } */
+    /* this is reason why puzzles got disturbed */
+    .addPost {
+    padding: 16px;
+    font-size: 16px;
+}
+#post-row{
+ display: flex;
+ flex-direction: column-reverse;
+}
+}
+@media (max-width:466px){
+  #starting p {
+    color: white;
+    font-size: 3vw;
+    line-height: 5vw;
+}
+.links i{
+  font-size: 10px;
+}
+#starting{
+  height:80vh;
+  background-image: url('../images/mobile_pic.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: local;
+}
+.h4, h4 {
+    font-size: 1rem;
+}
+}
