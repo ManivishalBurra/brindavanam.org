@@ -1,7 +1,6 @@
 {
   "name": "trip",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,5 +18,15 @@
     "express-fileupload": "^1.2.1",
     "lodash": "^4.17.20",
     "mongoose": "^5.11.15"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ManivishalBurra/brindavanam.org.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/ManivishalBurra/brindavanam.org/issues"
+  },
+  "homepage": "https://github.com/ManivishalBurra/brindavanam.org#readme",
+  "description": ""
 }
