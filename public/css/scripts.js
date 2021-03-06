@@ -1,3 +1,4 @@
+
 $(()=>{
   document.querySelectorAll('.btnss')
     .forEach(item => {
@@ -5,7 +6,10 @@ $(()=>{
         var id =this.id;
         var likeStatus=this.name;
         var likesNumber=this.value;
-        console.log(this.innerHTML);
+        console.log("this is ->"+this.id);
+        var audio= new Audio('../images/likeClick.mp3');
+        audio.play();
+
         if(likeStatus==="unliked")
         {
           this.name="liked";
@@ -37,5 +41,33 @@ $(()=>{
 
 
 });
+function myreadmore(obj){
+  let classNameofReadmore= obj.value;
+  document.getElementById("readmoreoption"+classNameofReadmore).style.display="none";
+  document.getElementById("tags"+classNameofReadmore).style.display="block";
+  document.getElementById("readmoreOpen"+classNameofReadmore).style.display="inline";
+}
+window.addEventListener("scroll",function(){
 
+		var intViewportWidth = window.innerWidth;
+    var offset=window.pageYOffset;
+    if(offset<600){
+    document.getElementById("post-button").style.display="none";
+    document.getElementById("post-button").style.opacity=0;
+    }
+    else{
+    document.getElementById("post-button").style.display="flex";
+    document.getElementById("post-button").style.opacity=1;
+    }
+    console.log(offset);
+
+});
+function myFunction(){
+  document.getElementById("uploadOption").style.display="flex";
+
+}
+function myClose(){
+  document.getElementById("uploadOption").style.display="none";
+
+}
 //

@@ -19,24 +19,15 @@
 
   						<div class="collapse navbar-collapse" id="navbarSupportedContent">
   							<ul class="navbar-nav ml-auto py-4 py-md-0">
-  								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
-  									<a class="nav-link dropdown-toggle"  href="/" role="button" aria-haspopup="true" aria-expanded="false">Home</a>
-  									<div class="dropdown-menu">
 
-  										<a class="dropdown-item" href="gossips">Gossips & campus❤</a>
-                      <a class="dropdown-item" href="puzzles">Puzzles</a>
-                      <a class="dropdown-item" href="release">Trips&Food</a>
-  										<a class="dropdown-item" href="release">Placements</a>
-  									</div>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 <%= home %>">
+  									<a class="nav-link " href="/">Home</a>
   								</li>
                   <!-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
                     <a class="nav-link" href="home">Home</a>
                   </li> -->
-                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-  									<a class="nav-link " href="gossips">Gossips & campus❤</a>
-  								</li>
-  								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 ">
-  									<a class="nav-link" href="puzzles">Puzzles</a>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 <%= gossips %>">
+  									<a class="nav-link " href="gossips">Muchatlu❤</a>
   								</li>
 
   								<!-- <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
@@ -48,12 +39,19 @@
   										<a class="dropdown-item" href="#">Another action</a>
   									</div>
   								</li> -->
-  								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-  									<a class="nav-link" href="release">Trips&Food</a>
+  								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 <%= meet %> ">
+  									<a class="nav-link" href="meet">2020 meet-ups</a>
   								</li>
   								<li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-  									<a class="nav-link" href="release">Placements</a>
+  									<a class="nav-link" href="puzzles">Puzzles</a>
   								</li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 <%= puzzles %>">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Extras</a>
+                    <div class="dropdown-menu">
+                      <a class="dropdown-item" href="release">Trips&foods</a>
+                      <a class="dropdown-item" href="release">Placements</a>
+                    </div>
+                  </li>
   							</ul>
   						</div>
 
@@ -62,5 +60,3 @@
   			</div>
   		</div>
   	</div>
-  </body>
-  </nav>

@@ -526,7 +526,23 @@ body.dark .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 		box-shadow: none;
 	}
 }
+::-webkit-scrollbar {
+  width: 1.5px;
+  background-color: black
 
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, .3);
+  border-radius: 10px
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: outset 0 0 6px 20px rgba(0, 0, 0, .3);
+  background: white
+
+}
 /* #Link to page
 ================================================== */
 /*
@@ -553,29 +569,26 @@ body.dark .logo img {
 .nav-container{
   margin-right: auto;
 }
-.footer ul{
-  position: relative;
-  top: 50%;
-}
-.quicks{
-  display: inline-block;
-  position: relative;
-  top: 50%;
-  left: 1vw;
-}
 
+.footer{
+  height: 200px;
+  background-color: #dde0e7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .links{
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 60px;
+  flex-direction: column;
 }
 .links i{
   font-size: 22px;
 }
 .links a{
-  padding: 0 40px 0 0;
+  padding:0 40px;
   filter: drop-shadow();
   filter: opacity(0.6);
 }
@@ -596,7 +609,9 @@ body.dark .logo img {
   .quicks{
     display: inline-block;
     position: relative;
-    top:10%;
+
+    top: 0%;
+    margin: 10px;
     left: 1vw;
   }
   h1 {

@@ -14,14 +14,18 @@
 <%- include("partials/header.ejs"); -%>
 
 <form class="" action="/post" method="post" style="text-align:center;padding-top:120px;" enctype="multipart/form-data">
-  <h2>Heading</h2>
-  <input type="text" name="heading" placeholder="Heading of trip">
+  <h3>Name/anonymous</h3>
+  <input type="text" name="name" placeholder="Name of the user">
+  <h3>Title</h3>
+  <input type="text" name="heading" placeholder="Heading of gossip">
   <h3>writeup</h3>
   <textarea name="writeup" rows="4" cols="80"></textarea>
-  <h2>Overview</h2>
+
+  <h3>Overview</h3>
   <textarea name="overview" rows="2" cols="80"></textarea>
-  <input type="file" name="file" value="">
   <br>
+  <input type="file" name="file" value="">
+
   <input type="submit" name="" value="Upload">
 </form>
 
