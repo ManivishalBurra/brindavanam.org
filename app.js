@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 mongoose.connect("mongodb+srv://admin-manivishal:Muddup3ru!@brindavanamsite.q33jw.mongodb.net/brindDB?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true});
 
 var muchatluHeading="#Muchatleskundam!";
-var muchatluwriteup="Manam campus lo unnappudu mana batch tho kalisi yumpies lo ala sodeskuntu konni gossips cheppukuntam ave ikkada cheppandi 2020 batch ki bits parichayam cheddam❣";
+var muchatluwriteup="We made so many memories in our campus,so many chit chats with our friends near yumpies, Now it is time to share a few memories and register them forever here and let's make sure our culture and facts wont die with us";
 var meetHeading="#Meet-ups 2020";
 var meetwriteup="2020 bitsians andaru seniors tho eina leda meeru ala kalsi matlaadukunna memories ikkada share cheskondi<3"
 

@@ -36,7 +36,7 @@ h4{
   color:white;
 }
 .background-gossips{
-  background-image: url('../images/DJI_0332(1).jpg');
+  background-image: url('https://scontent-sin6-3.xx.fbcdn.net/v/t1.0-9/p960x960/157955340_1015403362321692_6269608708964743465_o.jpg?_nc_cat=104&ccb=1-3&_nc_sid=730e14&_nc_ohc=GOyOMM65k78AX81sLId&_nc_ht=scontent-sin6-3.xx&tp=6&oh=515adc6f645a00867636e006258fddaa&oe=606B24E3');
 }
 .background-meet{
   background-image: url('../images/78221.jpg');
@@ -110,7 +110,7 @@ h4{
 }
 .post-image img{
   width: 100%;
-  max-height: 500px;
+  max-height: 520px;
   object-fit: contain;
   object-position: top center;
   border-radius: 8px;
@@ -341,7 +341,7 @@ display: none;
   overflow-y: scroll;
 }
 .background-gossips{
-  background-image: url('../images/mobile_pic.jpg');
+  background-image: url('https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/157953097_1015404352321593_7588980404771964072_o.jpg?_nc_cat=109&ccb=1-3&_nc_sid=730e14&_nc_ohc=vEsAFwJ-XR0AX9RyY9o&_nc_ht=scontent-sin6-1.xx&oh=313bc3e2f0303adc533d695a2d71050e&oe=60679266');
 }
 
 #starting{
