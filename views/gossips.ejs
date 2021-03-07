@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brindavanam-Gossips&campus</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <script src="https://kit.fontawesome.com/e88105b741.js" crossorigin="anonymous"></script>
+
+
+  <%- include("partials/header.ejs"); -%>
+
+
+  <section id="main-page">
+    <div id="starting" class="<%=image%>">
+      <div class="vertical-center" id="<%=image%>1">
+        <h1><%=heading%></h1>
+        <p><%=writing%></p>
+      </div>
+    </div>
+    <div class="curves">
+      <div class=" gossipsArea">
+        <div class="row" id="post-row">
+          <div class="col-lg-3">
+            <div class="Notifications">
+              <h5>Notifications</h5>
+              <div class="advertising">
+                <a href="https://www.facebook.com/102126923186668/posts/3843033349095988/">
+                <i id="master" class="fas fa-bullhorn ic" aria-hidden="true" style="color: #FF3E30;"></i>
+                2020 meet-ups on going...
+              </a>
+
+              </div>
+              <div class="advertising">
+                <a href="https://www.instagram.com/p/CDjd07GMZqQ/?utm_source=ig_web_copy_link"><i class="ic far fa-newspaper" id="master" aria-hidden="true" style="color: #176BEF;"></i>
+                Gnapika videos coming soon...</a>
+              </div>
+              <div class="advertising">
+                <a href="puzzles">
+                <i class="fas fa-gamepad ic" aria-hidden="true" id="master" style="color: #F7B529;"></i>
+                Play puzzles
+              </a>
+              </div>
+              <div class="advertising">
+                <a href="https://www.youtube.com/watch?v=oL1zI3mPPYM&t=62s">
+                <i class="fas fa-film ic" aria-hidden="true" id="master" style="color: #179C52;"></i>
+                Watch 2019 fresher's introduction
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 like">
+            <% tripHeading.slice().reverse().forEach(function(element){%>
+            <div class="trip-post">
+              <h6><i class="far fa-user-circle" style="color:grey;"></i><%= element.name %>>></h6>
+              <div class="post-descrition">
+                <div class="">
+                  <div class="details-content">
+                    <h6><strong><%= element.title %></strong></h6>
+                    <%if(element.write.length>100){ %>
+                    <p><%= element.write.substring(0,50) %><span id="<%='readmoreoption'+element._id%>"><button type="button" onclick="myreadmore(this)" value="<%=element._id%>" style="color:gray;" name="button">...readmore</button></span><span
+                        class="more-content" id="<%='readmoreOpen'+element._id%>"><%= element.write.substring(50) %></span></p>
+                    <%}%>
+               <%if(element.write.length<=100){%>
+                    <p><%= element.write %></p>
+                    <%}%>
+              </div>
+                </div>
+              </div>
+              <div class="post-image">
+                <img src="<%= element.imageurl %>" alt="">
+                  </div>
+
+                  <div class="post-react">
+                    <form class="" action="/like" method="post">
+                      <input type="hidden" name="like_id">
+                      <button type="button" class="btnss" id="<%=element._id%>" value="<%= element.totalLikes%>" name="unliked">
+                        <i class="far fa-heart"></i><%= element.totalLikes%> likes</button>
+                    </form>
+                  </div>
+
+                  <div class="details-content tags" id="<%='tags'+element._id%>">
+                    <%if(key==="gossips"){%>
+                    <h6><strong>Gossip about</strong></h6>
+                    <%}%>
+                    <p><%= element.overview %></p>
+                  </div>
+                </div>
+                <%})%>
+              </div>
+              <div class="col-lg-3">
+                <div class="postBlock">
+                <div class="addPost">
+                  <div class="headingForPost">
+                    <span class="font-weight-bold">Create</span>
+                    a post?
+                  </div>
+                </div>
+                <hr>
+                <!-- href="https://docs.google.com/forms/d/e/1FAIpQLSfghlTNLUQNmNNiPrs1VU5WNDi7qgZ9CpSnl5-KMjQiZUYp8w/viewform?usp=sf_link" -->
+                <a class="w-100 btn btn-primary buy-now btn-wide transition-3d-hover mt-2" onclick="myFunction()"><i class="far fa-plus-square iconstyle"></i>Click here to post</a>
+                <div class="addSymbol">
+
+                </div>
+
+              </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div id="post-button">
+          <a onclick="myFunction()"><i class="fas fa-feather-alt" style="padding:0;"></i></a>
+        </div>
+        <div id="addpostMsg">Add Post</div>
+  </section>
+  <section id="uploadOption">
+
+
+
+    <% if(key==="meet"){ %>
+      <i id="close" onclick="myClose()" style="cursor:pointer;" class="far fa-window-close meetClose"></i>
+      <div class="uploadbackground">
+        <div class="uploadForm">
+          <form id="uploadForms" action="/meetPost" method="post" enctype="multipart/form-data">
+            <div style="display:contents;"><input type="text" class="allInputs" name="name" placeholder="Name">
+            <input type="text" class="allInputs" name="heading" placeholder="Location"></div>
+            <textarea name="writeup" rows="4" cols="80" class="allInputs" placeholder="write something..."></textarea>
+            <textarea name="overview" rows="2" cols="80" class="allInputs" placeholder="tags"></textarea>
+            <input type="file" name="file" class="allInputs" value="">
+            <input type="submit" style="background-color:#007bff" name="" class="allInputs" value="Post">
+          </form>
+        </div>
+      </div>
+      <%}%>
+
+    <%if(key==="gossips"){%>
+    <i id="close" onclick="myClose()" style="cursor:pointer;" class="far fa-window-close"></i>
+    <div class="container" id="ff-compose"></div>
+    <script async defer src="https://formfacade.com/include/117923884710550155127/form/1FAIpQLSfZdaYrZuKcJtlW68uCKJ64HFOApRqXpBYeqWiyfuqqlnqZgA/bootstrap.js?div=ff-compose"></script>
+    <%}%>
+  </section>
+
+  <%- include("partials/footer.ejs"); -%>
+  </body>
