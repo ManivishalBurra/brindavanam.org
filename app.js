@@ -156,23 +156,6 @@ app.put("/post/:id/:likesNumber",function(req,res){
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 app.get("/puzzles",function(req,res){
 
   res.render("puzzles",{puzzles:active,home:nll,gossips:nll,meet:nll});
