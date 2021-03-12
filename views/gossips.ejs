@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
   <script src="https://kit.fontawesome.com/e88105b741.js" crossorigin="anonymous"></script>
 
 
@@ -28,25 +30,25 @@
               <h5>Notifications</h5>
               <div class="advertising">
                 <a href="https://www.facebook.com/102126923186668/posts/3843033349095988/">
-                  <i id="master" class="fas fa-bullhorn ic" aria-hidden="true" style="color: #FF3E30;"></i>
-                  2020 meet-ups on going...
-                </a>
+                <i id="master" class="fas fa-bullhorn ic" aria-hidden="true" style="color: #FF3E30;"></i>
+                2020 meet-ups on going...
+              </a>
 
               </div>
               <div class="advertising">
                 <a href="https://www.instagram.com/p/CDjd07GMZqQ/?utm_source=ig_web_copy_link"><i class="ic far fa-newspaper" id="master" aria-hidden="true" style="color: #176BEF;"></i>
-                  Gnapika videos coming soon...</a>
+                Gnapika videos coming soon...</a>
               </div>
               <div class="advertising">
                 <a href="puzzles">
-                  <i class="fas fa-gamepad ic" aria-hidden="true" id="master" style="color: #F7B529;"></i>
-                  Play puzzles
-                </a>
+                <i class="fas fa-gamepad ic" aria-hidden="true" id="master" style="color: #F7B529;"></i>
+                Play puzzles
+              </a>
               </div>
               <div class="advertising">
                 <a href="https://www.youtube.com/watch?v=oL1zI3mPPYM&t=62s">
-                  <i class="fas fa-film ic" aria-hidden="true" id="master" style="color: #179C52;"></i>
-                  Watch 2019 fresher's introduction
+                <i class="fas fa-film ic" aria-hidden="true" id="master" style="color: #179C52;"></i>
+                Watch 2019 fresher's introduction
                 </a>
               </div>
             </div>
@@ -54,7 +56,15 @@
           <div class="col-lg-6 like">
             <% tripHeading.slice().reverse().forEach(function(element){%>
             <div class="trip-post">
-              <h6><i class="far fa-user-circle" style="color:grey;"></i><%= element.name %>>></h6>
+              <div class="postedMain">
+              <h6><i class="far fa-user-circle" style="color:grey;"></i></h6>
+              <div class="postedTime">
+                <p style="font-size: 12px; font-weight:400"><%= element.name %>>></p>
+                  <p style="color:gray"><%= element.totalDate %>  <i class="fas fa-users" style="font-size:10px;color:gray"></i>. <%= element.hour%>hr</p>
+              </div>
+
+              </div>
+
               <div class="post-descrition">
                 <div class="">
                   <div class="details-content">
@@ -69,10 +79,26 @@
               </div>
                 </div>
               </div>
-              <div class="post-image">
-                <img src="<%= element.imageurl %>" alt="">
+                <%if(element.mimeType.length>1){%>
+              <div class="post-image one-time">
+              <%for(var j=0;j<element.imageurl.length;j++){%>
+                <%if(element.mimeType[j]==="mp4"){%>
+                  <div class="items">
+                <iframe src="<%= element.imageurl[j] %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                   </div>
 
+                  <%}%>
+                  <%if(element.mimeType[j]!="mp4"){%>
+                <div class="items"><img src="<%= element.imageurl[j] %>" alt=""></div>
+                  <%}%>
+                <%}%>
+              </div>
+                <%}%>
+                <%if(element.mimeType.length===1){%>
+                  <div class="post-image">
+                  <img src="<%= element.imageurl[0] %>" alt="">
+                  </div>
+                  <%}%>
                   <div class="post-react">
                     <form class="" action="/like" method="post">
                       <input type="hidden" name="like_id">
@@ -92,20 +118,20 @@
               </div>
               <div class="col-lg-3">
                 <div class="postBlock">
-                  <div class="addPost">
-                    <div class="headingForPost">
-                      <span class="font-weight-bold">Create</span>
-                      a post?
-                    </div>
+                <div class="addPost">
+                  <div class="headingForPost">
+                    <span class="font-weight-bold">Create</span>
+                    a post?
                   </div>
-                  <hr>
-                  <!-- href="https://docs.google.com/forms/d/e/1FAIpQLSfghlTNLUQNmNNiPrs1VU5WNDi7qgZ9CpSnl5-KMjQiZUYp8w/viewform?usp=sf_link" -->
-                  <a class="w-100 btn btn-primary buy-now btn-wide transition-3d-hover mt-2" onclick="myFunction()"><i class="far fa-plus-square iconstyle"></i>Click here to post</a>
-                  <div class="addSymbol">
-
-                  </div>
+                </div>
+                <hr>
+                <!-- href="https://docs.google.com/forms/d/e/1FAIpQLSfghlTNLUQNmNNiPrs1VU5WNDi7qgZ9CpSnl5-KMjQiZUYp8w/viewform?usp=sf_link" -->
+                <a class="w-100 btn btn-primary buy-now btn-wide transition-3d-hover mt-2" onclick="myFunction()"><i class="far fa-plus-square iconstyle"></i>Click here to post</a>
+                <div class="addSymbol">
 
                 </div>
+
+              </div>
               </div>
             </div>
 
@@ -121,21 +147,20 @@
 
 
     <% if(key==="meet"){ %>
-    <i id="close" onclick="myClose()" style="cursor:pointer;" class="far fa-window-close meetClose"></i>
-    <div class="uploadbackground">
-      <div class="uploadForm">
-        <form id="uploadForms" action="/meetPost" method="post" enctype="multipart/form-data">
-          <div style="display:contents;"><input type="text" class="allInputs" name="name" placeholder="Name">
-            <input type="text" class="allInputs" name="heading" placeholder="Location">
-          </div>
-          <textarea name="writeup" rows="4" cols="80" class="allInputs" placeholder="write something..."></textarea>
-          <textarea name="overview" rows="2" cols="80" class="allInputs" placeholder="tags"></textarea>
-          <input type="file" name="file" class="allInputs" value="">
-          <input type="submit" style="background-color:#007bff" name="" class="allInputs" value="Post">
-        </form>
+      <i id="close" onclick="myClose()" style="cursor:pointer;" class="far fa-window-close meetClose"></i>
+      <div class="uploadbackground">
+        <div class="uploadForm">
+          <form id="uploadForms" action="/meetPost" method="post" enctype="multipart/form-data">
+            <div style="display:contents;"><input type="text" class="allInputs" name="name" placeholder="Name">
+            <input type="text" class="allInputs" name="heading" placeholder="Location"></div>
+            <textarea name="writeup" rows="4" cols="80" class="allInputs" placeholder="write something..."></textarea>
+            <textarea name="overview" rows="2" cols="80" class="allInputs" placeholder="tags"></textarea>
+            <input type="file" name="files" class="allInputs" value="" multiple>
+            <input type="submit" style="background-color:#007bff" name="" class="allInputs" value="Post">
+          </form>
+        </div>
       </div>
-    </div>
-    <%}%>
+      <%}%>
 
     <%if(key==="gossips"){%>
     <i id="close" onclick="myClose()" style="cursor:pointer;" class="far fa-window-close"></i>
@@ -145,4 +170,4 @@
   </section>
 
   <%- include("partials/footer.ejs"); -%>
-    </body>
+  </body>

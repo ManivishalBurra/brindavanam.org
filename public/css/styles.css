@@ -7,6 +7,7 @@ a{
 }
 p{
   margin-bottom: 0;
+  white-space: pre-wrap;
 }
 hr{
   margin-bottom: 0;
@@ -87,6 +88,21 @@ h4{
   transition: 0.5s;
   transform: rotate(-45deg);
 }
+.postedMain{
+  display: flex;
+  margin-bottom: 0.3rem;
+}
+.postedMain h6{
+  margin-bottom: 0
+}
+
+.postedTime p{
+  font-size: 11px;
+  line-height: 18px;
+  display: flex;
+  align-items: center;
+}
+
 .gossipsArea {
     width: 100%;
     padding-top: 40px;
@@ -104,9 +120,23 @@ h4{
     margin-bottom: 25px;
     border: 1px solid #dad6d6;
 }
+div .slick-prev{
+  left: 0;
+  z-index: 10;
+}
+div .slick-dots li{
+  margin: 0;
+}
+div .slick-next{
+  right: 0;
+}
 .trip-writeup{
     padding: 0;
     background: #fff;
+}
+.post-image{
+  background-color: #dadada;
+  border-radius:8px
 }
 .post-image img{
   width: 100%;

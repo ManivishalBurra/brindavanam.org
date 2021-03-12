@@ -5,7 +5,7 @@ $(()=>{
       item.addEventListener('click', function() {
         var id =this.id;
         var likeStatus=this.name;
-        var likesNumber=parseInt(this.value);
+        var likesNumber=this.value;
         console.log("this is ->"+this.id);
         var audio= new Audio('../images/likeClick.mp3');
         audio.play();
@@ -13,17 +13,17 @@ $(()=>{
         if(likeStatus==="unliked")
         {
           this.name="liked";
-          this.value=likesNumber+1;
+          this.value=Number(likesNumber)+1;
           likesNumber=this.value;
           likeStatus=this.name;
-          this.innerHTML= '<i class="fas fa-heart"></i>' + likesNumber.toString() + ' likes';
+          this.innerHTML= '<i class="fas fa-heart"></i>' + likesNumber + ' likes';
         }
         else{
           this.name="unliked";
-          this.value=likesNumber-1;
+          this.value=Number(likesNumber)-1;
           likesNumber=this.value;
           likeStatus=this.name;
-          this.innerHTML= '<i class="far fa-heart"></i>' + likesNumber.toString() + ' likes';
+          this.innerHTML= '<i class="far fa-heart"></i>' + likesNumber + ' likes';
         }
         $.ajax({
             url: '/post/' + id+'/'+likesNumber,
@@ -70,4 +70,20 @@ function myClose(){
   document.getElementById("uploadOption").style.display="none";
 
 }
+
+$(function(){
+  $('.one-time').slick({
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    adaptiveHeight: true,
+    arrows: true,
+    centerMode:true,
+    centerPadding:'0',
+    dots: true,
+
+
+
+  });
+})
 //

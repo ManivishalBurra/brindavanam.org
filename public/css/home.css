@@ -113,7 +113,7 @@ text-align: center;
   background-image: url('https://scontent-hkt1-2.xx.fbcdn.net/v/t1.0-9/125072532_3377935428927195_2807502548315231546_n.jpg?_nc_cat=106&ccb=3&_nc_sid=09cbfe&_nc_ohc=Z5RP2df5bHwAX-qWQu4&_nc_ht=scontent-hkt1-2.xx&oh=897a004a7fafdaf51a5b86226bf8051c&oe=604A620A');
 }
 .secretery2{
-   background-image: url('https://scontent-sin6-2.cdninstagram.com/v/t51.2885-15/e35/46584697_798918277117016_2612694590219568135_n.jpg?tp=1&_nc_ht=scontent-sin6-2.cdninstagram.com&_nc_cat=108&_nc_ohc=5N_cupy8uYMAX_5Y3aG&oh=6cd1153bc99d3bf29a96fbc01d53af07&oe=606E55DF');
+  background-image: url('https://scontent-hkt1-2.xx.fbcdn.net/v/t1.0-9/85171374_2143289992484092_6145341100779971119_o.jpg?_nc_cat=104&ccb=3&_nc_sid=09cbfe&_nc_ohc=jekHHhGLcyoAX-B7pcQ&_nc_ht=scontent-hkt1-2.xx&oh=6b19b44502cbe606fd06da7a72f67801&oe=6047FC7E');
 }
 .treasurer{
   background-image: url('https://scontent-hkt1-2.xx.fbcdn.net/v/t1.0-9/73068602_1249822871864375_7894256044459687936_o.jpg?_nc_cat=100&ccb=3&_nc_sid=09cbfe&_nc_ohc=jNdlul6f_38AX-jFLIV&_nc_oc=AQkIBYkfBVJxrv_KUWmpE2fuJr7eOlcy8kwwzRSWLOOaRqb8Qp8Nv9kgZtHz0Cw6h_o&_nc_ht=scontent-hkt1-2.xx&oh=6a8edf9d14b3538ef9b0502f97de7b70&oe=60488C21');
@@ -161,7 +161,7 @@ text-align: center;
 }
 #home_parallalax {
     height: 75vh;
-    background-image: url('https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/p960x960/157239599_1015404638988231_3390606350801907122_o.jpg?_nc_cat=108&ccb=1-3&_nc_sid=730e14&_nc_ohc=mn7zD7edud0AX9KB-9h&_nc_ht=scontent-sin6-2.xx&tp=6&oh=28e74cd86a9188af053b811feedf9972&oe=6068CF97');
+    background-image: url(../images/brinda2logo2.jpg);
     background-size: cover;
     position: relative;
     background-attachment: inherit;
