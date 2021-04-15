@@ -61,7 +61,8 @@ const gossipSchema = {
   imageurl: [String],
   mimeType: [String],
   totalDate:String,
-  hour:String
+  hour:String,
+
 }
 const meetupSchema = {
   title: String,
@@ -75,8 +76,21 @@ const meetupSchema = {
   totalDate:String,
   hour:String
 }
+const tripsSchema = {
+  title: String,
+  write: String,
+  name: String,
+  overview: String,
+  likes: String,
+  totalLikes: Number,
+  imageurl: [String],
+  mimeType: [String],
+  totalDate:String,
+  hour:String
+}
 const Gossip = mongoose.model("Gossip", gossipSchema);
 const Meet = mongoose.model("Meet", meetupSchema);
+const Trip = mongoose.model("Trip", tripsSchema);
 
 
 
@@ -90,7 +104,8 @@ app.get("/", function(req, res) {
     home: active,
     gossips: nll,
     puzzles: nll,
-    meet: nll
+    meet: nll,
+    trips:nll
   });
 });
 
@@ -104,11 +119,13 @@ app.get("/gossips", function(req, res) {
       home: nll,
       gossips: active,
       puzzles: nll,
+      trips:nll,
       key: "gossips",
       meet: nll,
       heading: muchatluHeading,
       writing: muchatluwriteup,
-      image: "background-gossips"
+      image: "background-gossips",
+
     });
   });
 });
@@ -123,11 +140,31 @@ app.get("/meet", function(req, res) {
       home: nll,
       gossips: nll,
       puzzles: nll,
+      trips:nll,
       key: "meet",
       meet: active,
       heading: meetHeading,
       writing: meetwriteup,
-      image: "background-meet"
+      image: "background-meet",
+      postLink:"/meetPost"
+    });
+  });
+});
+app.get("/trips", function(req, res) {
+  Trip.find({}, function(err, posters) {
+    console.log(posters);
+    res.render("gossips", {
+      tripHeading: posters,
+      home: nll,
+      gossips: nll,
+      puzzles: nll,
+      meet:nll,
+      key: "meet",
+      trips: active,
+      heading: "Trips and food!!",
+      writing: "We, in our campus have made so many memories and trips that we only know the secret places and fun places that can be suggested..so,lets post about our trips and let them know about the best trip they can make ",
+      image: "background-trip",
+      postLink:"/tripsPost"
     });
   });
 });
@@ -352,6 +389,102 @@ app.post("/meetPost", function(req, res, next) {
 
 });
 
+//trips
+app.post("/tripsPost", function(req, res, next) {
+
+  mulupload(req, res, function(err) {
+    if (err) {
+      return res.send('somenthing wrong');
+    } else {
+      var file = req.files;
+      const globalArray={
+        imagefile:[],
+        imageType:[]
+      };
+      async function firstFunction(){
+      for (var i = 0; i < file.length; i++) {
+        var filename = file[i].filename;
+        var filePath = path.join(__dirname + time.substring(1), filename);
+        globalArray.imagefile.push(await generatePublicUrl());
+        globalArray.imageType.push(req.files[i].mimetype.substring(req.files[i].mimetype.length-3));
+        async function uploadFile() {
+          try {
+            const response = await drive.files.create({
+              requestBody: {
+                name: 'trips.jpg', //This can be name of your choice
+                mimeType: req.files.mimetype,
+              },
+              media: {
+                mimeType: req.files.mimetype,
+                body: fs.createReadStream(filePath),
+              },
+            });
+
+            return await response.data.id;
+          } catch (error) {
+            console.log(error.message);
+          }
+        }
+        async function generatePublicUrl() {
+          var x = await uploadFile();
+
+          try {
+            const fileId = x;
+            await drive.permissions.create({
+              fileId: fileId,
+              requestBody: {
+                role: 'reader',
+                type: 'anyone'
+              }
+            })
+            const result = await drive.files.get({
+              fileId: fileId,
+              fields: 'webViewLink, webContentLink'
+            });
+
+            return result.data.webContentLink
+          }
+           catch (error) {
+            console.log(error.message);
+          }
+        }
+      }
+      return globalArray;
+    }
+    secondFunction();
+    async function secondFunction(){
+      var imagesURL=await firstFunction();
+      console.log(imagesURL);
+      fs.removeSync(time);
+      var d= new Date();
+      var monthData = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+      var month=monthData[d.getMonth()].substr(0,3);
+      var year=d.getFullYear();
+      var date= d.getDate();
+      var hour=d.getHours();
+      hour=(Number(hour)+6)%24;
+      var totalDates= month+" "+date+", "+year;
+      const trip = new Trip({
+        title: req.body.heading,
+        write: req.body.writeup,
+        name: req.body.name,
+        overview: req.body.overview,
+        likes: "unliked",
+        totalLikes: 0,
+        imageurl: imagesURL.imagefile,
+        mimeType: imagesURL.imageType,
+        totalDate:totalDates,
+        hour:hour.toString()
+      });
+      trip.save();
+      res.redirect("/trips");
+     }
+    }
+
+  });
+
+});
+
 // here AJAX update for likes without reloading
 app.put("/post/:id/:likesNumber", function(req, res) {
 
@@ -380,6 +513,17 @@ app.put("/post/:id/:likesNumber", function(req, res) {
   }, function(err, foundList) {
 
   });
+  Trip.findOneAndUpdate({
+    _id: id
+  }, {
+    $set: {
+      totalLikes: likesNum
+    }
+  }, {
+    useFindAndModify: false
+  }, function(err, foundList) {
+
+  });
   res.send(req.params);
 
 });
@@ -398,7 +542,8 @@ app.get("/puzzles", function(req, res) {
     puzzles: active,
     home: nll,
     gossips: nll,
-    meet: nll
+    meet: nll,
+    trips:nll,
   });
 });
 
@@ -408,7 +553,8 @@ app.get("/release", function(req, res) {
     puzzles: nll,
     home: nll,
     gossips: nll,
-    meet: nll
+    meet: nll,
+    trips:nll
   });
 });
 

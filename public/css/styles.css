@@ -42,6 +42,12 @@ h4{
 .background-meet{
   background-image: url('../images/78221.jpg');
 }
+.background-trip{
+  background-image: url('https://www.pro-sky.com/images/en/news/news_header_webseite_-49-_342_full.jpg');
+}
+#starting #background-trip1 h1 {
+  color: black;
+}
 #starting #background-meet1 h1,#starting #background-meet1 p{
   color: black
 }
@@ -197,14 +203,22 @@ button img{
 
 }
 .addPost{
+  transition: 0.7s;
   background: #fff;
   box-shadow: 0 2px 12px rgb(0 0 0 / 9%);
   border-radius: 4px;
-  margin-bottom: 30px;
+  margin-bottom: 0px;
   padding:30px;
   text-align: center;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
+  width: 100%;
+  cursor: pointer;
+}
+.addPost:hover{
+  transition: 0.7s;
+  box-shadow: 0 2px 12px rgb(0 0 0 / 38%);
+  padding: 20px;
 }
 .font-weight-bold {
     font-weight: 700!important;
@@ -213,7 +227,11 @@ button img{
     color: #555c6b;
     font-size: 20px;
   }
-
+.headingForPost{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .credits{
   background-color: #dde0e7;
   text-align: center;

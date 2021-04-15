@@ -3,7 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Brindavanam-Gossips&campus</title>
+  <title>Brindavanam-<%= heading %></title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/nav.css">
@@ -118,12 +118,12 @@
               </div>
               <div class="col-lg-3">
                 <div class="postBlock">
-                <div class="addPost">
+                <a onclick="myFunction()"><div class="addPost">
                   <div class="headingForPost">
-                    <span class="font-weight-bold">Create</span>
-                    a post?
+                    <span class="font-weight-bold">Create&nbsp;</span>
+                      your own post now!!
                   </div>
-                </div>
+                </div></a>
                 <hr>
                 <!-- href="https://docs.google.com/forms/d/e/1FAIpQLSfghlTNLUQNmNNiPrs1VU5WNDi7qgZ9CpSnl5-KMjQiZUYp8w/viewform?usp=sf_link" -->
                 <a class="w-100 btn btn-primary buy-now btn-wide transition-3d-hover mt-2" onclick="myFunction()"><i class="far fa-plus-square iconstyle"></i>Click here to post</a>
@@ -150,7 +150,7 @@
       <i id="close" onclick="myClose()" style="cursor:pointer;" class="far fa-window-close meetClose"></i>
       <div class="uploadbackground">
         <div class="uploadForm">
-          <form id="uploadForms" action="/meetPost" method="post" enctype="multipart/form-data">
+          <form id="uploadForms" action=<%= postLink %> method="post" enctype="multipart/form-data">
             <div style="display:contents;"><input type="text" class="allInputs" name="name" placeholder="Name">
             <input type="text" class="allInputs" name="heading" placeholder="Location"></div>
             <textarea name="writeup" rows="4" cols="80" class="allInputs" placeholder="write something..."></textarea>
