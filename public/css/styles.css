@@ -330,6 +330,14 @@ display: none;
 #ff-compose{
   max-height: 90vh;
 }
+.videoFile{
+  width: 100%;
+  max-height: 520px
+}
+.slick-list{
+    max-height: 520px;
+    border-radius: 8px;
+}
 @media (max-width:991px) {
 
     #uploadOption{

@@ -84,9 +84,10 @@
               <%for(var j=0;j<element.imageurl.length;j++){%>
                 <%if(element.mimeType[j]==="mp4"){%>
                   <div class="items">
-                <iframe src="<%= element.imageurl[j] %>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                  </div>
-
+                    <video class="videoFile" controls>
+                    <source src="<%=element.imageurl[j]%>" type="video/mp4">
+                  </video>
+                </div>
                   <%}%>
                   <%if(element.mimeType[j]!="mp4"){%>
                 <div class="items"><img src="<%= element.imageurl[j] %>" alt=""></div>
